@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday</title>
+  
+  
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:900'>
+
+      <link rel="stylesheet" href="css/main.css">
+
+  
+</head>
+
+<body>
+
+  <h1>Happy Birthday! <em id ="friendName"></em></h1>
+  <p><em id="message">God always blesses genuine, humble and kind people like you. And today, you’re likely to get double the blessings since it’s your Birthday! May all your birthday wishes come true!!</em></p>
+<canvas id="birthday"></canvas>
+  
+  
+    <script>
+        //get name from url
+      function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          name = name.replace(/[\[\]]/g, '\\$&');
+          var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          if (!results) return "";
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+        //get message from url
+      function getParameterByMessage(message, url) {
+          if (!url) url = window.location.href;
+          message = message.replace(/[\[\]]/g, '\\$&');
+          var regex = new RegExp('[?&]' + message + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          var str ="The sunshine that streams down on your face today will bring you the Lord’s blessings and good wishes. Enjoy your special day!"
+          var str2= "<br><em style = 'color : rgb(5, 221, 59); font-family:  monospace;'> and May all your birthday wishes come true!!</em>"
+          str = str +str2;
+          if (!results || results.length <2) return str;
+          if (!results[2]) return '';
+          str = decodeURIComponent(results[2].replace(/\+/g, ' '));
+          str = str + str2;
+          return str
+      }
+      
+      var name = getParameterByName('nm');
+      var message = getParameterByMessage('msg');
+
+      var nameElem = document.getElementById("friendName");
+      var messageElem = document.getElementById("message");
+
+      nameElem.innerHTML = name;
+      messageElem.innerHTML = message;
+    </script>
+    <script  src="js/main.js"></script>
+
+</body>
+
+</html>
