@@ -40,8 +40,8 @@
           var str ="The sunshine that streams down on your face today will bring you the Lord’s blessings and good wishes. Enjoy your special day!"
           var str2= "<br><em style = 'color : rgb(5, 221, 59); font-family:  monospace;'> and May all your birthday wishes come true!!</em>"
           str = str +str2;
-          if (!results || results.length <2) return str;
-          if (!results[2]) return '';
+          if (!results) return str;
+          if (!results[2]) return str;
           str = decodeURIComponent(results[2].replace(/\+/g, ' '));
           str = str + str2;
           return str
