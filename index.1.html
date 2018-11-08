@@ -29,7 +29,8 @@
               results = regex.exec(url);
           if (!results) return "";
           if (!results[2]) return '';
-          return decodeURIComponent(results[2].replace(/\+/g, ' '));
+          var str = decodeURIComponent(results[2].replace(/\+/g, ' '));
+          return rot13(str);
       }
         //get message from url
       function getParameterByMessage(message, url) {
