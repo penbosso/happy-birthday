@@ -1,0 +1,109 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cipher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    html {
+    font-size: 10px;
+    background: url(image.jpg) bottom center;
+    background-size: cover; 
+    }
+    body,html {
+    margin: 0;
+    padding: 0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .container {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;  
+    }
+    .left,.right {
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 2.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 40%;
+    
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 .5rem black;        
+    }
+
+    input {
+        width: 100%;
+        min-height: 5%;
+    }
+    .btn {
+        background-color: royalblue;
+        color: azure;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <input type="text" id="cipherinput" placeholder="Input text here!" >
+            <input class="btn" type="button" value="Cipher" onclick="rot13();">
+            <p id="cipheroutput"></p>
+            <input class="btn" type="button" value="Copy output" onclick="copyfunction();">
+        </div>
+        <!-- <div class="right">
+            <input type="text" id="decipherinput" placeholder="Input text here!">
+            <input class="btn" type="button" value="Decipher" onclick="derot13();">
+            <p id="decipheroutput"></p>
+        </div> -->
+    </div>
+    
+    <script>
+    function rot13() {
+    str = document.getElementById("cipherinput").value;
+    var input     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var output    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    var index     = x => input.indexOf(x);
+    var translate = x => index(x) > -1 ? output[index(x)] : x;
+    str = str.split('').map(translate).join('');
+    document.getElementById("cipheroutput").innerText = str;
+    }
+
+    function copyfunction(){
+        copyText = document.getElementById("cipheroutput").innerText;
+        copyToClipboard(copyText);
+    }
+
+    const copyToClipboard = str => {
+        if(str.length <1){
+            alert('No text copied');
+            return null;
+        }
+        const el = document.createElement('textarea');
+        el.value = str;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert(" Text copied ");
+        };
+
+    // function derot13() {
+    //     str = document.getElementById("decipherinput").value;
+    //     var output   = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    //     var input    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+    //     var index     = x => input.indexOf(x);
+    //     var translate = x => index(x) > -1 ? output[index(x)] : x;
+    //     str = str.split('').map(translate).join('');
+    //     document.getElementById("decipheroutput").innerText = str;
+    //     }
+    </script>
+</body>
+</html>
