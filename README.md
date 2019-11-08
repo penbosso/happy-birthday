@@ -9,9 +9,8 @@ input name into nm=<> and message into msg=<> in the url
 http://htmlpreview.github.io/?https://github.com/penbosso/happy-birthday/master/index.html?nm=&msg=
 
 ## cipher msg version
-http://htmlpreview.github.io/?https://github.com/penbosso/happy-birthday/master/index.1.html?nm=&msg=
+https://penbosso.github.io/happy-birthday/index.1.html?nm=&msg=
 
-# cipher / deciphper
-http://htmlpreview.github.io/?https://github.com/penbosso/cipher/master/index.html
+
 
 ## NB. Not all browsers support the animated background.

@@ -67,24 +67,21 @@
           value="Copy url"
           onclick="copyfunction();"
         />
+        <a href="" id="preview" style="color: aliceblue;">Preview</a>
       </div>
-      <!-- <div class="right">
-            <input type="text" id="decipherinput" placeholder="Input text here!">
-            <input class="btn" type="button" value="Decipher" onclick="derot13();">
-            <p id="decipheroutput"></p>
-        </div> -->
     </div>
 
     <script>
-      function getUrl(){
+      const getUrl = () => {
         const name = document.querySelector("#nameinput").value;
         const message = document.querySelector("#messageinput").value;
         const cipherName = rot13(name);
         const cipherMessage = rot13(message);
 
-        birthdayUrl =`http://htmlpreview.github.io/?https://github.com/penbosso/happy-birthday/master/index.1.html?nm=${cipherName}&msg=${cipherMessage}`;
+        birthdayUrl =`https://penbosso.github.io/happy-birthday/index.1.html?nm=${cipherName}&msg=${cipherMessage}`;
 
         document.querySelector("#cipheroutput").textContent = birthdayUrl;
+        document.querySelector("#preview").href = birthdayUrl;
       }
       const rot13 = str => {
         var input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
